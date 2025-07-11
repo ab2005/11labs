@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElevenLabs Widget Test - Eleven Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .info-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .info-section h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        
+        .agent-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .agent-detail {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .agent-detail strong {
+            color: #ffd700;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        
+        .instructions h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        
+        .instructions ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 10px 0;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+        
+        .widget-status {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .widget-status.error {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: rgba(255, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .agent-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 ElevenLabs Widget Test</h1>
+        <p class="subtitle">Testing conversational AI with the "Eleven" agent</p>
+        
+        <div class="agent-info">
+            <div class="agent-detail">
+                <strong>Agent Name:</strong> Eleven
+            </div>
+            <div class="agent-detail">
+                <strong>Agent ID:</strong> agent_01jym7aznqegga4knns1xsxp3y
+            </div>
+            <div class="agent-detail">
+                <strong>Voice ID:</strong> DdjHUeDG35RyruXkDUg2
+            </div>
+            <div class="agent-detail">
+                <strong>Created:</strong> 2025-06-20 20:36:47
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 How to Test the Widget</h3>
+            <ul>
+                <li>The official ElevenLabs widget should appear automatically on the page</li>
+                <li>Look for the chat interface - it will be positioned according to agent settings</li>
+                <li>Click to start a conversation with the "Eleven" agent</li>
+                <li>Test voice input by speaking into your microphone (grant permission when prompted)</li>
+                <li>Test text input by typing messages in the chat interface</li>
+                <li>Try asking questions in Russian or English - the agent responds in Russian</li>
+                <li>Test interruption by speaking while the agent is responding</li>
+                <li>The widget supports both voice and text-only modes</li>
+            </ul>
+        </div>
+        
+        <div class="widget-status" id="widgetStatus">
+            <strong>Widget Status:</strong> <span id="statusText">Loading official ElevenLabs widget...</span>
+        </div>
+        
+        <div class="info-section">
+            <h3>🛠️ Available Tools</h3>
+            <p>The "Eleven" agent has access to the following tools:</p>
+            <ul>
+                <li><strong>Google Calendar:</strong> Create, list, and manage calendar events</li>
+                <li><strong>Health Tracking:</strong> Log blood pressure, set medication reminders</li>
+                <li><strong>Event Management:</strong> Add, complete, and snooze health events</li>
+                <li><strong>Location Services:</strong> Get current location and time</li>
+                <li><strong>Navigation:</strong> Redirect to external URLs and documentation</li>
+                <li><strong>Notifications:</strong> Test notification system functionality</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>🔧 Test Environment | Agent: Eleven | ElevenLabs Conversational AI</p>
+        </div>
+    </div>
+
+    <!-- ElevenLabs Official Widget -->
+    <elevenlabs-convai agent-id="agent_01jym7aznqegga4knns1xsxp3y"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    
+    <script>
+        // Widget status monitoring
+        document.addEventListener('DOMContentLoaded', function() {
+            // Monitor widget loading
+            const checkWidget = setInterval(() => {
+                const widget = document.querySelector('elevenlabs-convai');
+                if (widget) {
+                    updateStatus('Official ElevenLabs widget loaded successfully!', false);
+                    clearInterval(checkWidget);
+                }
+            }, 1000);
+            
+            // Timeout after 10 seconds
+            setTimeout(() => {
+                const widget = document.querySelector('elevenlabs-convai');
+                if (!widget) {
+                    updateStatus('Widget loading timeout - check network connection', true);
+                }
+                clearInterval(checkWidget);
+            }, 10000);
+        });
+        
+        function updateStatus(message, isError) {
+            const statusText = document.getElementById('statusText');
+            const statusDiv = document.getElementById('widgetStatus');
+            
+            if (statusText && statusDiv) {
+                statusText.textContent = message;
+                statusDiv.className = isError ? 'widget-status error' : 'widget-status';
+            }
+        }
+        
+        // Console logging for debugging
+        console.log('ElevenLabs Widget Test Page Loaded');
+        console.log('Agent ID: agent_01jym7aznqegga4knns1xsxp3y');
+        console.log('Official widget integration active');
+    </script>
+</body>
+</html>
